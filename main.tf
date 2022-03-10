@@ -10,11 +10,11 @@ provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "rg_aquib_dev" {
-  name     = "rg_aquib_dev"
+  name     = var.dev_var
   location = "Central India"
 }
 resource "azurerm_resource_group" "rg_aquib_qa" {
-  name     = "rg_aquib_qa"
+  name     = var.qa_var
   location = "Central India"
 }
 resource "azurerm_app_service_plan" "dev_plan_appservice" {
