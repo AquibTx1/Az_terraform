@@ -51,3 +51,17 @@ resource "azurerm_app_service" "qa-aquib-appservice" {
   app_service_plan_id = azurerm_app_service_plan.qa_plan_appservice.id
 
 }
+resource "azurerm_storage_account" "aquibdevstorageaccount" {
+  name                     = "aquibdevstorageaccount"
+  resource_group_name      = azurerm_resource_group.rg_aquib_dev.name
+  location                 = azurerm_resource_group.rg_aquib_dev.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
+resource "azurerm_storage_account" "aquibqastorageaccount" {
+  name                     = "aquibqastorageaccount"
+  resource_group_name      = azurerm_resource_group.rg_aquib_qa.name
+  location                 = azurerm_resource_group.rg_aquib_qa.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
