@@ -17,3 +17,23 @@ resource "azurerm_resource_group" "rg_aquib_qa" {
   name     = "rg_aquib_qa"
   location = "Central India"
 }
+resource "azurerm_app_service_plan" "dev_plan_appservice" {
+  name                = "dev_plan_appservice"
+  location            = azurerm_resource_group.rg_aquib_dev.location
+  resource_group_name = azurerm_resource_group.rg_aquib_dev.name
+
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+}
+resource "azurerm_app_service_plan" "qa_plan_appservice" {
+  name                = "qa_plan_appservice"
+  location            = azurerm_resource_group.rg_aquib_qa.location
+  resource_group_name = azurerm_resource_group.rg_aquib_qa.name
+
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+}
